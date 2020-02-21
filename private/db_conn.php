@@ -1,8 +1,8 @@
 <?php
 
   $host = 'localhost';
-  $user = 'admin';
-  $passwd = 'R1224161212n';
+  $user = 'yourusername';
+  $passwd = 'yourpassword';
   $dbname = 'reglog';
   $pdo = NULL;
   //data source name
