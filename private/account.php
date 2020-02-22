@@ -135,7 +135,7 @@ class Account {
         // $this->id = intval($row['id'], 10);
         // $this->name = $name;
         // $this->authenticated = TRUE;
-        // $this->registerLoginSession();
+        Account::registerLoginSession($row['account_id']);
 
         return TRUE;
       }
@@ -143,7 +143,7 @@ class Account {
     return FALSE;
   }
 
-  private function registerLoginSession(){
+  private static function registerLoginSession(int $Id){
     global $pdo;
 
     if(session_status() == PHP_SESSION_ACTIVE){
@@ -153,9 +153,9 @@ class Account {
         - update the row having the session id if it does exist.
       */
 
-      $query = 'REPLACE INTO reglog.account_sessions (session_id, username, login_time) VALUES (:sid, :accountId, NOW()) ';
+      $query = 'REPLACE INTO reglog.account_sessions (session_id, account_id, login_time) VALUES (:sid, :accountId, NOW()) ';
           
-      $values = array(':sid' => session_id(), 'accountId' => $this->id);
+      $values = array(':sid' => session_id(), 'accountId' => $Id);
 
       try{
         $res = $pdo->prepare($query);
