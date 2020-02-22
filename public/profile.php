@@ -4,7 +4,7 @@
   if(!$_SESSION['isLogged']) {
     $_SESSION['message'] = 'Please log in';
     header("location: index.php"); 
-    die(); 
+    //die(); 
   }
   require '../private/db_conn.php';
   global $pdo;
@@ -28,8 +28,8 @@
   <title>Logged in users</title>
 </head>
 <body>
-  <h2>Logged In Users</h2>
-  <p><?php echo $_SESSION['message']; ?></p>
+  <h1>Logged In Users</h1>
+  <h2><?php echo $_SESSION['message']; ?></h2>
   <a href="./index.php">Back to Home</a>
   <h3>List of registered users:</h3>
   <table>
@@ -50,5 +50,7 @@
       <?php } ?>
     </tbody>
   </table>
+  <br>
+  <a href="../private/logout.php">logout</a>
 </body>
 </html>

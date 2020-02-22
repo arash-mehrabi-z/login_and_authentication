@@ -1,7 +1,6 @@
 <?php
 
   session_start();
-  $_SESSION['message'] = '';
   /* Include the database connection file (remember to change the connection parameters) */
   require_once '../private/db_conn.php';
 
