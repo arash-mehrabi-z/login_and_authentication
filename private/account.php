@@ -81,7 +81,7 @@ class Account {
     $id = NULL;
 
     // Search the id on the db.
-    $query = 'SELECT account_id FROM authentication.accounts WHERE (account_name = :name)';
+    $query = 'SELECT account_id FROM reglog.accounts WHERE (username = :name)';
     $values = array(':name' => $name);
 
     try {
